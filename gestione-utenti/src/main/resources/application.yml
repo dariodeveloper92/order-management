@@ -1,0 +1,26 @@
+server:
+  port: 8181
+
+spring:
+  application:
+    name: gestione-utenti
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/gestione-utenti
+    username: root
+    password: Root92
+  jpa:
+    hibernate:
+      ddl-auto: update
+      cache:
+        use_second_level_cache: true # Abilita la cache di secondo livello
+        use_query_cache: true        # Abilita la cache per le query
+        region:
+          factory_class: org.hibernate.cache.jcache.JCacheRegionFactory # Imposta JCache come factory della cache
+    show-sql: true # Per mostrare le query SQL nel log
+
+kafka:
+  bootstrap-servers: localhost:9092
+
+cache:
+  type: caffeine # Tipo di implementazione della cache
